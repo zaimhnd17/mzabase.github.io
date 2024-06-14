@@ -1,0 +1,138 @@
+.loading-progress {
+	position: relative;
+	display: block;
+	width: 8rem;
+	height: 8rem;
+	margin: 20vh auto 1rem auto;
+}
+
+	.loading-progress circle {
+		fill: none;
+		stroke: #e0e0e0;
+		stroke-width: 0.6rem;
+		transform-origin: 50% 50%;
+		transform: rotate(-90deg);
+	}
+
+		.loading-progress circle:last-child {
+			stroke: #1b6ec2;
+			stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+			transition: stroke-dasharray 0.05s ease-in-out;
+		}
+
+.loading-progress-text {
+	/*	position: absolute; <-- removed for linear-progress */
+	text-align: center;
+	font-weight: bold;
+	inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
+	margin-bottom: 5px; /* added for linear-progress */
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: black;
+}
+
+	.loading-progress-text:after {
+		content: var(--blazor-load-percentage-text, "Loading");
+	}
+
+.linear-progress {
+	background: black;
+	width: 50vw;
+	margin: 5px auto;
+	height: 1rem;
+	border-radius: 10rem;
+	overflow: hidden;
+	position: relative;
+	/*	box-shadow: 2px 2px 4px 2px #023e8587;*/
+}
+
+	.linear-progress:after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-color: #9d9d9d;
+		scale: var(--blazor-load-percentage, 0%) 100%;
+		transform-origin: left top;
+		transition: scale ease-out 0.5s;
+	}
+
+/*
+	Custom CSS classes and overrides
+*/
+.mud-field-upper .mud-input-root,
+.mud-text-field-upper input,
+.mud-text-field-upper textarea {
+	text-transform: uppercase;
+}
+
+.mud-field-lower .mud-input-root,
+.mud-text-field-lower input,
+.mud-text-field-lower textarea {
+	text-transform: lowercase;
+}
+
+.mud-field-align-left .mud-input-root {
+	text-align: left;
+}
+
+.mud-field-align-center .mud-input-root {
+	text-align: center;
+}
+
+.mud-field-align-right .mud-input-root {
+	text-align: right;
+}
+
+.mud-field-align-start .mud-input-root {
+	text-align: start;
+}
+
+.mud-field-align-end .mud-input-root {
+	text-align: end;
+}
+
+.mud-toolbar-hide .mud-toolbar {
+	display: none;
+}
+
+span.mud-table-sort-label {
+	margin-right: -26px; /* To compensate sort icon spacing at the end of text so that center & right aligned TH will align properly with TD */
+}
+
+	span.mud-table-sort-label.left-icon { /* This is for sort headers where sort icon is before the text label */
+		margin-right: unset; /* Remove right margin set by mud-table-sort-label */
+		margin-left: -26px; /* Compensate sort icon spacing so that center & left aligned TH will align properly with TD */
+	}
+
+.mud-dialog .mud-dialog-actions {
+	padding-left: 24px !important;
+	padding-right: 24px !important;
+	padding-bottom: 16px !important;
+}
+
+.flex-fill {
+	flex: 1 1 auto !important;
+}
+
+.dlg-title-info {
+	background-color: var(--mud-palette-info);
+	color: var(--mud-palette-info-text);
+}
+
+.dlg-title-success {
+	background-color: var(--mud-palette-success);
+	color: var(--mud-palette-info-success);
+}
+
+.dlg-title-error {
+	background-color: var(--mud-palette-error);
+	color: var(--mud-palette-error-text);
+}
+
+.dlg-title-warning {
+	background-color: var(--mud-palette-warning);
+	color: var(--mud-palette-warning-text);
+}
+
+.mud-alert-message-full-width .mud-alert-message {
+	width: 100% !important;
+}

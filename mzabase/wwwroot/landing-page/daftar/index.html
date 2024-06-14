@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Daftar Ahli</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="vendor/nouislider/nouislider.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <div class="main">
+
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <img src="images/myahli.png" alt="pendaftaran-myahli">
+                    <!-- <div class="signup-img-content">
+                        <h2>Register now </h2>
+                        <p>while seats are available !</p>
+                    </div> -->
+                </div>
+                <div class="signup-form">
+                    <form method="POST" class="register-form" id="register-form">
+                        <h3 style="text-decoration: underline;">Daftar Sistem Keanggotaan PDRM</h3>
+                        <h5 style="color: blue;">Sila isi maklumat yang diperlukan diruang yang disediakan. </h5>
+                        <div class="form-row">
+
+                            <div class="form-group form-input col-md-6">
+                                <label for="first_name" class="required">Nama Penuh 
+                                    <span style="font-size: smaller; text-transform: lowercase;">(mengikut kad pengenalan):</span> </label>
+                                <input type="text" name="first_name" id="first_name" />
+                            </div>
+                            <div class="form-group form-input col-md-6">
+                                <label for="noic" class="required">No. Kad Pengenalan:</label>
+                                <input type="text" name="noic" id="noic" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group form-input col-md-6">
+                                <label for="email" class="required">Alamat E-Mel:</label>
+                                <input type="text" name="email" id="email" />
+                            </div>
+                            <div class="form-group form-input col-md-6">
+                                <label for="phone_number" class="required">No. Telefon Bimbit</label>
+                                <input type="text" name="phone_number" id="phone_number" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group form-input col-md-6">
+                                <label for="password" class="required">Kata Laluan</label>
+                                <input type="password" name="password" id="password" />
+                            </div>
+                            <div class="form-group form-input col-md-6">
+                                <label for="repeatpassword" class="required">Pengesahan Kata Laluan</label>
+                                <input type="password" name="repeatpassword" id="repeatpassword" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group form-input col-md-6">
+                                <label for="first_name" class="required">Kata Kunci Keselamatan
+                                    <span style="font-size: smaller; text-transform: lowercase;">(Captcha):</span> </label>
+                                <div class="capbox">
+
+                                    <div id="CaptchaDiv"></div>
+
+                                    <div class="capbox-inner">
+                                        Type the number:<br>
+
+                                        <input type="hidden" id="txtCaptcha">
+                                        <input type="text" name="CaptchaInput" id="CaptchaInput" size="15"><br>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-submit">
+                            <input type="submit" value="Daftar" class="submit" id="submit" name="submit" />
+                            <input type="submit" value="Batal" class="submit" id="reset" name="reset" onClick="myFunction()" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/nouislider/nouislider.min.js"></script>
+    <script src="vendor/wnumb/wNumb.js"></script>
+    <script src="vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="vendor/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Custom Script -->
+    <script>
+        function myFunction() {
+            window.history.back();
+        }
+    </script>
+    <!-- // Captcha Script -->
+    <script type="text/javascript">
+        function checkform(theform) {
+            var why = "";
+
+            if (theform.CaptchaInput.value == "") {
+                why += "- Please Enter CAPTCHA Code.\n";
+            }
+            if (theform.CaptchaInput.value != "") {
+                if (ValidCaptcha(theform.CaptchaInput.value) == false) {
+                    why += "- The CAPTCHA Code Does Not Match.\n";
+                }
+            }
+            if (why != "") {
+                alert(why);
+                return false;
+            }
+        }
+
+        var a = Math.ceil(Math.random() * 9) + '';
+        var b = Math.ceil(Math.random() * 9) + '';
+        var c = Math.ceil(Math.random() * 9) + '';
+        var d = Math.ceil(Math.random() * 9) + '';
+        var e = Math.ceil(Math.random() * 9) + '';
+
+        var code = a + b + c + d + e;
+        document.getElementById("txtCaptcha").value = code;
+        document.getElementById("CaptchaDiv").innerHTML = code;
+
+        // Validate input against the generated number
+        function ValidCaptcha() {
+            var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+            var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
+            if (str1 == str2) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        // Remove the spaces from the entered and generated code
+        function removeSpaces(string) {
+            return string.split(' ').join('');
+        }
+    </script>
+</body>
+<!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>

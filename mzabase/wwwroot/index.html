@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>mzabase</title>
+	<base href="/" />
+	<link rel="shortcut icon" href="/images/favicon.ico" />
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+	<link href="_content/MudBlazor/MudBlazor.min.css?v=6.19.1" rel="stylesheet" />
+	<link href="css/loader.css" rel="stylesheet" />
+	<link href="css/app.css?240510" rel="stylesheet" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body style="overflow-x: hidden;">
+	<div id="app">
+		<style>
+			@keyframes slide {
+				0% {
+					transform: translateX(-25%);
+				}
+
+				100% {
+					transform: translateX(25%);
+				}
+			}
+
+			.mud-wasm {
+				animation: slide 3s ease-in-out infinite alternate;
+				/*background-image: linear-gradient(-60deg,#1E88E5 50%,#0069c0 50%);*/
+				bottom: 0;
+				left: -50%;
+				opacity: .5;
+				position: fixed;
+				right: -50%;
+				top: 0;
+				z-index: -1
+			}
+
+			.mud-wasm-cont {
+				left: 50%;
+				/*padding: 10vmin;*/
+				position: fixed;
+				text-align: center;
+				top: 50%;
+				transform: translate(-50%,-50%)
+			}
+
+			.kpd-logo {
+				/*height: 314px;
+				width: 600px;*/
+				max-width: 75%;
+				height: auto;
+			}
+		</style>
+
+		<div style="height:100%;width:100%;margin:0;position:fixed;">
+			<div class="mud-wasm"></div>
+			<div class="mud-wasm" style="animation-direction:alternate-reverse;animation-duration:4s;"></div>
+			<div class="mud-wasm" style="animation-duration:5s;"></div>
+			<div class="mud-wasm-cont ">
+				<img src="images\logo_qms_access_w_title.PNG" class="kpd-logo" />
+			</div>
+		</div>
+
+		<div style="width: 100%; position: fixed; bottom: 0; ">
+			<!--<svg class="loading-progress">
+				<circle r="40%" cx="50%" cy="50%" />
+				<circle r="40%" cx="50%" cy="50%" />
+			</svg>-->
+			<div class="linear-progress"></div>
+			<div class="loading-progress-text"></div>
+		</div>
+	</div>
+
+	<div id="blazor-error-ui">
+		An unhandled error has occurred.
+		<a href="" class="reload">Reload</a>
+		<a class="dismiss">🗙</a>
+	</div>
+
+	<!-- Landing Page JS -->
+	<script src="landing-page/js/anchorLink.js"></script>
+	<!-- Popper js -->
+	<script src="landing-page/js/popper.min.js"></script>
+	<!-- Bootstrap-4 Beta JS -->
+	<script src="landing-page/js/bootstrap.min.js"></script>
+	<!-- All Plugins JS -->
+	<script src="landing-page/js/plugins.js?v=2110121709"></script>
+	<!-- Slick Slider Js-->
+	<script src="landing-page/js/owl.carousel.min.js"></script>
+	<script src="landing-page/js/slick.min.js"></script>
+	<!-- Footer Reveal JS -->
+	<script src="landing-page/js/footer-reveal.min.js"></script>
+	<!--venobox -->
+	<script src="landing-page/js/venobox.js"></script>
+	<!-- Active JS -->
+	<script src="landing-page/js/custom.js?v=2110121709"></script>
+	<!-- Custom for login JS -->
+	<script src="landing-page/js/main.js"></script>
+
+	<script src="js/scroll.js"></script>
+	<script src="js/sounds.js"></script>
+	<script src="js/file.js?2402260956"></script>
+	<script src="_framework/blazor.webassembly.js"></script>
+	<script src="_content/MudBlazor/MudBlazor.min.js?v=6.19.1"></script>
+	<script src="_content/TinyMCE.Blazor/tinymce-blazor.js"></script>
+	<script src="js/tinymcehelper.js?2110280953"></script>
+
+	<!-- Custom for Telerik Reporting -->
+	<script src="js/kendo.all.min.js"></script>
+	<script src="api/reports/resources/js/telerikReportViewer"></script>
+	<script src="js/interop.js" defer></script>
+</body>
+</html>
